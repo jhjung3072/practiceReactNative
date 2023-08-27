@@ -9,7 +9,10 @@ import {
 import { Avatar, Button } from "react-native-paper";
 import ButtonBox from "../components/ButtonBox";
 import Footer from "../components/Footer";
-
+import { useDispatch } from "react-redux"
+import { logout } from "../redux/actions/userActions";
+import { useMessageAndErrorUser } from "../utils/hooks";
+import { useNavigation } from "@react-navigation/native";
 const user = {
   name: "asdasd",
   email: "sadasd.com",
@@ -19,9 +22,13 @@ const user = {
 const Profile = ({ navigation, route }) => {
   const [avatar, setAvatar] = useState(defaultImg);
 
-  const loading = false;
+  const dispatch = useDispatch();
+  
 
-  const logoutHandler = () => {};
+  const loading= useMessageAndErrorUser(navigation, dispatch, "login")
+  const logoutHandler = () => {
+    dispatch(logout())
+  };
 
   const navigateHandler = (text) => {
     switch (text) {

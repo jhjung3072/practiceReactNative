@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   colors,
   defaultStyle,
@@ -9,12 +9,26 @@ import {
 } from "../styles/styles";
 import { Button, TextInput } from "react-native-paper";
 import Footer from "../components/Footer";
+import {useDispatch, useSelector} from "react-redux"
+import { login } from "../redux/actions/userActions";
+
+import { useMessageAndErrorUser } from "../utils/hooks";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = () => {};
+  const dispatch = useDispatch();
+
+const loading= useMessageAndErrorUser(navigation, dispatch, "profile")
+
+  
+  
+  
+
+  const submitHandler = () => {
+    dispatch(login(email, password))
+  };
   return (
     <>
       <View style={defaultStyle}>

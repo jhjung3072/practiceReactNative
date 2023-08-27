@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import Footer from "../components/Footer";
 import Heading from "../components/Heading";
 
-const categories = [
+export const categories = [
   { category: "Nice", _id: "asdasd" },
   { category: "football", _id: "gfrf" },
   { category: "man", _id: "dasdasd" },
@@ -23,12 +23,13 @@ const categories = [
   { category: "woman", _id: "dfhttererr" },
 ];
 
-const products = [
+export const products = [
   {
     price: 23123,
     name: "sample",
     stock: 23,
     _id: "sadhedhe",
+    category: "sdjkhsdjkf",
     images: [
       {
         url: "https://i.pinimg.com/originals/ab/94/af/ab94afad0d4b0ff2340fbc6490c28c3e.png",
